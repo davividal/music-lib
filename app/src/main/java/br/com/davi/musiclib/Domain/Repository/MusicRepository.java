@@ -42,7 +42,7 @@ public class MusicRepository extends AbstractRepository {
     }
 
     public List<Music> findAll() {
-        List<Music> library = new ArrayList<Music>();
+        List<Music> library = new ArrayList<>();
         Cursor cursor = db.query(
                 SqliteWrapper.MUSIC,
                 SqliteWrapper.MUSIC_COLS,

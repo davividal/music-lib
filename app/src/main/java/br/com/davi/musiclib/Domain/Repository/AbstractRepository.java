@@ -7,13 +7,15 @@ import br.com.davi.musiclib.Domain.Infrastructure.DbDriver;
 import br.com.davi.musiclib.Domain.Infrastructure.SqliteDriver;
 
 public abstract class AbstractRepository {
-    protected DbDriver driver;SQLiteDatabase db;
+    protected DbDriver driver;
+    protected SQLiteDatabase db;
 
     public AbstractRepository(Context context) {
         /**
          * @TODO: implement a factory
          **/
         driver = new SqliteDriver(context);
-        db = (SQLiteDatabase)this.driver.getDatabase();
+        driver.open();
+        db = (SQLiteDatabase) driver.getDatabase();
     }
 }
